@@ -109,49 +109,6 @@ exports.likeSauce = (req, res, next) => {
 
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
-      //         let liked = sauce.usersLiked.find(id => id === userId);
-      //         console.log(liked);
-      //         let disliked = sauce.usersDisliked.find(id => id === userId);
-      //         console.log(disliked);
-
-      //         switch (like) {
-      //             case 1:
-      //                 if (!liked) {
-      //                     sauce.likes = sauce.usersLiked.length + 1;
-      //                     sauce.usersLiked.push(userId);
-      //                 } else {
-      //                     throw new Error('Already liked');
-      //                 }
-      //                 if (disliked) {
-      //                     throw new Error('Already disliked');
-      //                 }
-      //                 break;
-
-      //             case 0:
-      //                 if (liked) {
-      //                     sauce.usersLiked = sauce.usersLiked.filter(id => id !== userId);
-      //                     sauce.likes = sauce.usersLiked.length;
-      //                 }
-      //                 else if (disliked) {
-      //                         sauce.dislikes = sauce.usersDisliked.length - 1;
-      //                         sauce.usersDisliked = sauce.usersDisliked.filter(id => id !== userId);
-
-      //                 }
-      //                 break;
-
-      //             case -1:
-
-      //                 if (!disliked) {
-      //                     sauce.dislikes = sauce.usersDisliked.length + 1;
-      //                     sauce.usersDisliked.push(userId);
-      //                 } else {
-      //                     throw new Error('Already disliked');
-      //                 }
-      //                 if (liked) {
-      //                     throw new Error('Already liked');
-      //                 }
-      //         }
-
       const likeIndex = sauce.usersLiked.indexOf(userId);
 
       let dislikeIndex = sauce.usersDisliked.indexOf(userId);
