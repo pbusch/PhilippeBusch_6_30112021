@@ -132,10 +132,10 @@ exports.likeSauce = (req, res, next) => {
 
         case 0:
           if (liked) {
-            // supression de l'utilisateur du tableau users.liked
+            // supression de l'utilisateur du tableau users.liked via son index
             sauce.usersLiked.splice(likeIndex, 1);
           } else if (disliked) {
-            // supression de l'utilisateur du tableau users.disliked
+            // supression de l'utilisateur du tableau users.disliked via son index
             sauce.usersDisliked.splice(dislikeIndex, 1);
           }
           break;
@@ -148,7 +148,7 @@ exports.likeSauce = (req, res, next) => {
           if (disliked) {
             throw new Error("Already disliked");
           }
-          // si la sauce n'est pas 'liked' ou déjà 'disliked' on ajoute l'utilisateur au tableau users.liked
+          // si la sauce n'est pas 'liked' ou déjà 'disliked' on ajoute l'utilisateur au tableau users.disliked
           sauce.usersDisliked.push(userId);
       }
 
