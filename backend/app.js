@@ -6,6 +6,7 @@ const sauceRoutes = require("./routes/sauce");
 const path = require("path");
 require("dotenv").config();
 
+// Connexion à Mongo - Base locale (localhost)
 mongoose.connect("mongodb://localhost:27017/hottakes", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -16,6 +17,7 @@ db.once("open", function () {
   console.log("connecté à Mongoose");
 });
 
+// contrôles d'accès
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

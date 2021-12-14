@@ -4,15 +4,6 @@ const Sauce = require("../models/sauce");
 exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
-
-  //Sauce.find({ 'name': sauceObject.name }, 'name', function (err, doublon) {
-  //    if (err) return handleError(err);
-  //    if (doublon.length > 0) {
-  //        console.log(doublon);
-  //       res.status(401).json({ error: "Sauce name alreay exists !" });
-  //    }
-  //});
-
   const sauce = new Sauce({
     ...sauceObject,
     imageUrl: `${req.protocol}://${req.get("host")}/images/${
