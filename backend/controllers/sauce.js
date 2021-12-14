@@ -125,7 +125,7 @@ exports.likeSauce = (req, res, next) => {
             throw new Error("Already liked");
           }
 
-          // si la sauce n'est pas 'disliked' ou déjà 'liked' on ajoute l'utilisateur au tableau users.liked
+          // si la sauce n'est pas 'disliked' ou déjà 'liked' on ajoute l'utilisateur au tableau usersLiked
           sauce.usersLiked.push(userId);
 
           break;
@@ -148,11 +148,11 @@ exports.likeSauce = (req, res, next) => {
           if (disliked) {
             throw new Error("Already disliked");
           }
-          // si la sauce n'est pas 'liked' ou déjà 'disliked' on ajoute l'utilisateur au tableau users.disliked
+          // si la sauce n'est pas 'liked' ou déjà 'disliked' on ajoute l'utilisateur au tableau usersDisliked
           sauce.usersDisliked.push(userId);
       }
 
-      //recalcul du nombre de like/dislike en fonction des tableau users.liked et users.disliked
+      //recalcul du nombre de like/dislike en fonction des tableau usersLiked et usersDisliked
       //cela assure une cohérence permanente du nombre de like dislike avec ces deux tableaux
       sauce.likes = sauce.usersLiked.length;
       sauce.dislikes = sauce.usersDisliked.length;
