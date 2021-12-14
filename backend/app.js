@@ -17,7 +17,7 @@ db.once("open", function () {
   console.log("connecté à Mongoose");
 });
 
-// contrôles d'accès
+// contrôles d'accès CORS
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -31,12 +31,16 @@ app.use((req, res, next) => {
   next();
 });
 
+// parser json
 app.use(express.json());
 
+// configuration du chemin d'accès au dossier /images
 app.use("/images", express.static(path.join(__dirname, "images")));
 
+// routes d'authentification/login/signup
 app.use("/api/auth", userRoutes);
 
+//routes d'accès aux sauces
 app.use("/api/sauces", sauceRoutes);
 
 module.exports = app;

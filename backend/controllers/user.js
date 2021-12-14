@@ -3,10 +3,13 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const passwordValidator = require("password-validator");
 
+//traitement de la creation d'un utilisateur
 exports.signup = (req, res, next) => {
-  let emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+  //verification de format d'email valide
+  const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
     String(req.body.email).toLowerCase()
   );
+  //verification du mot de passe non vide - ici à 1 char minimum mais à augmenter pour plus de sécurité (message explicatif à gerer niveau front-end)
   let schema = new passwordValidator();
   schema.is().min(1);
 
@@ -29,6 +32,7 @@ exports.signup = (req, res, next) => {
   }
 };
 
+//gestion du login
 exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
