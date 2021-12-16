@@ -11,7 +11,7 @@ exports.createSauce = (req, res, next) => {
       req.file.filename
     }`,
     // on initialise les likes/dislikes usersLiked/UsersDisliked à zéro et l'userId à celui de l'utilisateur authentifié
-    //ceci afin d'éviter des entrées invalides via Postman ou autre
+    //ceci afin d'éviter des entrées invalides
     userId: req.token.userId,
     likes: 0,
     dislikes: 0,
