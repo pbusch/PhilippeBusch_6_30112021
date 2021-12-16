@@ -1,0 +1,3 @@
+[submodule "Web-Developer-P6"]
+	path = frontend
+	url = https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6.git
