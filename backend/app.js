@@ -7,7 +7,7 @@ const path = require("path");
 require("dotenv").config();
 
 // Connexion à Mongo - Base locale (localhost)
-mongoose.connect("mongodb://localhost:27017/hottakes", {
+mongoose.connect(process.env.DBURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -37,7 +37,7 @@ app.use(express.json());
 // configuration du chemin d'accès au dossier /images
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-// routes d'authentification/login/signup
+// routes d'authentification
 app.use("/api/auth", userRoutes);
 
 //routes d'accès aux sauces

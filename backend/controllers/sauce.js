@@ -1,8 +1,14 @@
 const fs = require("fs");
 const Sauce = require("../models/sauce");
 
-// creation d'une sauce (post)
-exports.createSauce = (req, res, next) => {
+/**
+ * creation d'une sauce (post)
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+exports.createSauce = (req, res) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
   const sauce = new Sauce({
