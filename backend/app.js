@@ -6,7 +6,10 @@ const sauceRoutes = require("./routes/sauce");
 const path = require("path");
 require("dotenv").config();
 
-// Connexion à Mongo - Base locale (localhost)
+/**  Connexion à Mongo - Base locale (localhost)
+ * @param  {string} process.env.DBURL - URL de connexion définie dans .env
+ */
+
 mongoose.connect(process.env.DBURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

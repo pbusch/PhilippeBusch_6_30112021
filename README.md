@@ -2,7 +2,7 @@
 
 ## Construisez une API sécurisée pour une application d'avis gastronomiques
 
-Ce projet comporte un front-end (submodule : "frontend @ 39f2028") et un backend à cloner.
+Ce projet comporte un front-end Angular (submodule : "frontend @ 39f2028") et un backend Node/Express
 
 ---
 
@@ -28,3 +28,8 @@ BACKEND
 - Créer un dossier /images à la racine de /backend/
 - Lancer `npm install`
 - Lancer `node server`
+
+---
+
+STATUT :
+Terminé

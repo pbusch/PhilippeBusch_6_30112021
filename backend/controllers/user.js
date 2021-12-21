@@ -3,7 +3,9 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const passwordValidator = require("password-validator");
 
-//traitement de la creation d'un utilisateur
+/**
+ * traitement de la creation d'un utilisateur
+ */
 exports.signup = (req, res, next) => {
   //verification de format d'email valide
   const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
@@ -32,7 +34,9 @@ exports.signup = (req, res, next) => {
   }
 };
 
-//gestion du login
+/**
+ * gestion du login
+ */
 exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {

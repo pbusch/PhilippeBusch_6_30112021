@@ -3,10 +3,6 @@ const Sauce = require("../models/sauce");
 
 /**
  * creation d'une sauce (post)
- *
- * @param {*} req
- * @param {*} res
- * @param {*} next
  */
 exports.createSauce = (req, res) => {
   const sauceObject = JSON.parse(req.body.sauce);
@@ -30,7 +26,9 @@ exports.createSauce = (req, res) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
-// Modification d'une sauce spécifique (via son id) - PUT
+/**
+ * Modification d'une sauce spécifique (via son id) - PUT
+ */
 exports.modifySauce = (req, res, next) => {
   const imageChanged = false;
   const sauceObject = req.file
@@ -64,7 +62,9 @@ exports.modifySauce = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-// Suppression d'une sauve spécifique via son id - DELETE
+/**
+ *  Suppression d'une sauve spécifique via son id - DELETE
+ */
 exports.deleteSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
@@ -78,7 +78,9 @@ exports.deleteSauce = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-// Consultation de toutes les sauces - GET
+/**
+ *   Consultation de toutes les sauces - GET
+ */
 exports.getAllSauce = (req, res, next) => {
   Sauce.find()
     .then((sauce) => {
@@ -91,7 +93,9 @@ exports.getAllSauce = (req, res, next) => {
     });
 };
 
-// Consultation d'une sauce spécifique (via son id) - GET
+/**
+ *  Consultation d'une sauce spécifique (via son id) - GET
+ */
 exports.getOneSauce = (req, res, next) => {
   Sauce.findOne({
     _id: req.params.id,
@@ -107,7 +111,9 @@ exports.getOneSauce = (req, res, next) => {
     });
 };
 
-// Gestion des likes / dislikes
+/**
+ *   Gestion des likes / dislikes
+ */
 exports.likeSauce = (req, res, next) => {
   const userId = req.body.userId;
   const like = req.body.like;
