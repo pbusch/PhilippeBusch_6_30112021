@@ -29,7 +29,7 @@ exports.createSauce = (req, res) => {
 /**
  * Modification d'une sauce spécifique (via son id) - PUT
  */
-exports.modifySauce = (req, res, next) => {
+exports.modifySauce = (req, res) => {
   const imageChanged = false;
   const sauceObject = req.file
     ? {
@@ -65,7 +65,7 @@ exports.modifySauce = (req, res, next) => {
 /**
  *  Suppression d'une sauve spécifique via son id - DELETE
  */
-exports.deleteSauce = (req, res, next) => {
+exports.deleteSauce = (req, res) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
       const filename = sauce.imageUrl.split("/images/")[1];
@@ -81,7 +81,7 @@ exports.deleteSauce = (req, res, next) => {
 /**
  *   Consultation de toutes les sauces - GET
  */
-exports.getAllSauce = (req, res, next) => {
+exports.getAllSauce = (req, res) => {
   Sauce.find()
     .then((sauce) => {
       res.status(200).json(sauce);
@@ -96,7 +96,7 @@ exports.getAllSauce = (req, res, next) => {
 /**
  *  Consultation d'une sauce spécifique (via son id) - GET
  */
-exports.getOneSauce = (req, res, next) => {
+exports.getOneSauce = (req, res) => {
   Sauce.findOne({
     _id: req.params.id,
   })
@@ -114,7 +114,7 @@ exports.getOneSauce = (req, res, next) => {
 /**
  *   Gestion des likes / dislikes
  */
-exports.likeSauce = (req, res, next) => {
+exports.likeSauce = (req, res) => {
   const userId = req.body.userId;
   const like = req.body.like;
 
