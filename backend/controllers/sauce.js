@@ -2,7 +2,7 @@ const fs = require("fs");
 const Sauce = require("../models/sauce");
 
 /**
- * creation d'une sauce (post)
+ * creation d'une sauce - POST
  */
 exports.createSauce = (req, res) => {
   const sauceObject = JSON.parse(req.body.sauce);
@@ -115,7 +115,7 @@ exports.getOneSauce = (req, res) => {
  *   Gestion des likes / dislikes
  */
 exports.likeSauce = (req, res) => {
-  const userId = req.body.userId;
+  const userId = req.token.userId;
   const like = req.body.like;
 
   Sauce.findOne({ _id: req.params.id })
@@ -136,10 +136,8 @@ exports.likeSauce = (req, res) => {
           if (liked) {
             throw new Error("Already liked");
           }
-
           // si la sauce n'est pas 'disliked' ou déjà 'liked' on ajoute l'utilisateur au tableau usersLiked
           sauce.usersLiked.push(userId);
-
           break;
 
         case 0:

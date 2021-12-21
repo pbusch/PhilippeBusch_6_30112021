@@ -22,8 +22,8 @@ BACKEND
 - Variables d'environement (fichier .env à la racine de /backend/)
 
         1.  PORT = port du sever - par défaut : 3000
-        2.  APP_SECRET = chaine de cryptage à renseigner - Vous pouvez en générer une ici : https://www.javainuse.com/jwtgenerator
-        3.  DBURL = URL de connexion à Mongo. Exemple : "mongodb://localhost:27017/hottakes"
+        2.  APP_SECRET = chaine de cryptage à renseigner - Générateur disponible une ici : https://www.javainuse.com/jwtgenerator
+        3.  DBURL = URL de connexion à Mongo. URL utilisée dans ce projet en dev. : "mongodb://localhost:27017/hottakes"
 
 - Créer un dossier /images à la racine de /backend/
 - Lancer `npm install`

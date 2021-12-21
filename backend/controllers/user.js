@@ -12,7 +12,7 @@ exports.signup = (req, res, next) => {
     String(req.body.email).toLowerCase()
   );
   //verification du mot de passe non vide - ici à 1 char minimum mais à augmenter pour plus de sécurité (message explicatif à gerer niveau front-end)
-  let schema = new passwordValidator();
+  const schema = new passwordValidator();
   schema.is().min(1);
 
   if (emailformat && schema.validate(req.body.password)) {
