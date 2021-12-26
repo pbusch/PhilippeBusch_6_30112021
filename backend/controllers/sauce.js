@@ -63,7 +63,7 @@ exports.modifySauce = (req, res) => {
 };
 
 /**
- *  Suppression d'une sauve spécifique via son id - DELETE
+ *  Suppression d'une sauce spécifique via son id - DELETE
  */
 exports.deleteSauce = (req, res) => {
   Sauce.findOne({ _id: req.params.id })
@@ -123,11 +123,11 @@ exports.likeSauce = (req, res) => {
       //on cherche si l'utilisateur connecté a déjà like / dislike la sauce consultée
       const likeIndex = sauce.usersLiked.indexOf(userId);
       const dislikeIndex = sauce.usersDisliked.indexOf(userId);
-      //En fonction de la recherche on crée les boolean liked et disliked
+      //en fonction de la recherche on crée les boolean liked et disliked
       const liked = likeIndex !== -1;
       const disliked = dislikeIndex !== -1;
 
-      // gestion des trois cas possibles : 1 (like) - 0 (annulation de like / dislike) -1 dislike
+      // gestion des trois cas possibles : 1 = like | 0 = annulation de like / dislike | -1 = dislike
       switch (like) {
         case 1:
           if (disliked) {

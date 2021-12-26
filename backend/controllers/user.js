@@ -57,7 +57,7 @@ exports.login = (req, res) => {
               { userId: user._id },
               process.env.APP_SECRET || "defaultSecret",
               {
-                expiresIn: "24000h",
+                expiresIn: "24h",
               }
             ),
           });
