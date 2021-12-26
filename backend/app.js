@@ -9,7 +9,7 @@ require("dotenv").config();
 /**  Connexion à Mongo - Base locale (localhost)
  * @param  {string} process.env.DBURL - URL de connexion définie dans .env
  */
-mongoose.connect(process.env.DBURL, {
+mongoose.connect(process.env.DBURL || "mongodb://localhost:27017/hottakes", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

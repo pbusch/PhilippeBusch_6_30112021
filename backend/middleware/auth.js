@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
       // on récupère le token dans le header ("Authorisation") - on sépare la chaine "bearer" du token lui-même
       const token = req.headers.authorization.split(" ")[1];
       // on décode le token avec la chaine définie dans .env et on le vérifie
-      req.token = jwt.verify(token, process.env.APP_SECRET);
+      req.token = jwt.verify(token, process.env.APP_SECRET || "defaultSecret");
       next();
     } catch {
       res.status(401).json({

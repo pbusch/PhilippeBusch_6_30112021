@@ -6,7 +6,7 @@ const passwordValidator = require("password-validator");
 /**
  * traitement de la creation d'un utilisateur
  */
-exports.signup = (req, res, next) => {
+exports.signup = (req, res) => {
   //verification de format d'email valide
   const emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
     String(req.body.email).toLowerCase()
@@ -30,14 +30,14 @@ exports.signup = (req, res, next) => {
       })
       .catch((error) => res.status(500).json({ error }));
   } else {
-    return res.status(401).json({ error: "invalid email or empty password" });
+    return res.status(400).json({ error: "invalid email or empty password" });
   }
 };
 
 /**
  * gestion du login
  */
-exports.login = (req, res, next) => {
+exports.login = (req, res) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
@@ -53,9 +53,13 @@ exports.login = (req, res, next) => {
           }
           res.status(200).json({
             userId: user._id,
-            token: jwt.sign({ userId: user._id }, process.env.APP_SECRET, {
-              expiresIn: "24000h",
-            }),
+            token: jwt.sign(
+              { userId: user._id },
+              process.env.APP_SECRET || "defaultSecret",
+              {
+                expiresIn: "24000h",
+              }
+            ),
           });
         })
         .catch((error) => res.status(500).json({ error }));

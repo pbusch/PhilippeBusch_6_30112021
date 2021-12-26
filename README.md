@@ -14,16 +14,18 @@ DEPENDANCES
 
 FRONTEND
 
-- Suivre les étapes indiquées dans le README.MD du frontend
+- Suivre les étapes indiquées dans le [README](frontend/README.md) du frontend
 
 BACKEND
 
 - installer une instance MongoDB locale
 - Variables d'environement (fichier .env à la racine de /backend/)
 
-        1.  PORT = port du sever - par défaut : 3000
-        2.  APP_SECRET = chaine de cryptage à renseigner - Générateur disponible une ici : https://www.javainuse.com/jwtgenerator
-        3.  DBURL = URL de connexion à Mongo. URL utilisée dans ce projet en dev. : "mongodb://localhost:27017/hottakes"
+  PORT = port du sever - par défaut : 3000
+
+  APP_SECRET = chaine de cryptage à renseigner
+
+  DBURL = URL de connexion à Mongo. URL utilisée dans ce projet en dev. : "mongodb://localhost:27017/hottakes"
 
 - Créer un dossier /images à la racine de /backend/
 - Lancer `npm install`
