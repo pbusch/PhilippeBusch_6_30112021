@@ -14,7 +14,7 @@ DEPENDANCES
 
 FRONTEND
 
-- Suivre les étapes indiquées dans le [README](frontend/README.md) du frontend
+- Suivre les étapes indiquées dans le [README](https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6/blob/39f2028dd5908e9eb295414606a5b58cdff32646/README.md) du frontend
 
 BACKEND
 
